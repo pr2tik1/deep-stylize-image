@@ -1,3 +1,4 @@
+import os
 import streamlit as st 
 from PIL import Image 
 import style 
@@ -24,7 +25,7 @@ model = "saved_models/" + style_name + ".pth"
 input_image = "images/content-images/" + img  
 output_image = "images/output-images/" + style_name + "-" + img 
 
-image_uploaded = st.file_uploader("Upload an image: ", type="jpg")
+image_uploaded = st.file_uploader("📲Upload an image: ", type="jpg")
 
 if image_uploaded is not None:
     input_ = image_uploaded
@@ -33,16 +34,28 @@ else:
     input_ = input_image
     image = Image.open(input_image)
 
-st.write("### Source Image: ")
+st.write("### 🖼Source Image: ")
 st.image(image, use_column_width='always')
 
-clicked = st.button("Stylize")
+clicked = st.button("Stylize✅")
 if clicked:
     model = style.load_model(model)
-    style.stylize(model, input_image, output_image)
+    style.stylize(model, input_, output_image)
 
-    st.write("### Output Image")
+    st.write("### 🎉Output Image")
     image = Image.open(output_image)
     st.image(image, use_column_width='always')
 
-st.write("What a style!")
+st.write("What a style! Follow me, [here](pr2tik1.github.io)")
+
+st.write("### **DANGER ZONE** Delete Everything!⚠️")
+st.write('To delete all the output images and uploaded images press this button below.')
+cleared = st.button("Delete 🚫")
+mydir = 'images/output-images/'
+if cleared:
+    for file in os.listdir(mydir):
+        if file.endswith('.jpg'):
+            os.remove(os.path.join(mydir,file))
+
+
+
