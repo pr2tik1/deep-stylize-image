@@ -2,60 +2,96 @@ import os
 import streamlit as st 
 from PIL import Image 
 import style 
+import random 
 
+#Main Title
 im = Image.open('banner.jpg')
 st.image(im)
 
-st.write("Stylize your Image from the available styles. Just choose from the options in the sidebar and click '**stylize**'. \
-    This app uses style transfer deep learning technique. To know more follow the model training and code visit \
-        [here](https://github.com/pytorch/examples/tree/master/fast_neural_style). **Note** first run image and style from \
-            sidebar, then upload your own image.")
+#Style images 
+st.write("## 🤩 Style Images \
+        \nFollowing are the style images can be used. Choose from the sidebar options.")
+im_1 = Image.open("images/style-images/candy.jpg")
+im_2 = Image.open("images/style-images/mosaic.jpg")
+im_3 = Image.open("images/style-images/rain-princess.jpg")
+im_4 = Image.open("images/style-images/udnie.jpg")
+col1, col2, col3, col4  = st.beta_columns(4)
+with col1:
+    st.image(im_1, width=100)
+    st.write("Candy")
+with col2:
+    st.image(im_2, width=120)
+    st.write("Mosaic")
+with col3:
+    st.image(im_3, width=100)
+    st.write("Rain Princess")
+with col4:
+    st.image(im_4, width=100)
+    st.write("Udnie")
 
-img = st.sidebar.selectbox(
-    "Select Image",
-    ("amber.jpg","dog.jpg","author.png","cat.jpg","flower.jpg")
-)
+st.write("## 📲Content Image \
+        \nUpload your content image from below option of 'Browse Files'.")
 
+#Sidebar
+st.sidebar.title("Deep Stylize Image")
+st.sidebar.write("Steps: \
+    \n1. Upload via 'Browse Files'\
+    \n2. Choose a style and click 'Stylize' \
+    \n3. Breathe and let model work")
+#Style options
 style_name = st.sidebar.selectbox(
-    "Select Style",
+    "Style Options",
     ('candy','mosaic','udnie','rain_princess')
 )
+#Default value and Uploading images
+img = "amber" #default
+image_uploaded = st.file_uploader("(Image below 1MB)", type="jpg")
 
+#Loading model
 model = "saved_models/" + style_name + ".pth"
-input_image = "images/content-images/" + img  
-output_image = "images/output-images/" + style_name + "-" + img 
+input_image = "images/content-images/" + img  + ".jpg"
 
-image_uploaded = st.file_uploader("📲Upload an image: ", type="jpg")
-
-if image_uploaded is not None:
-    input_ = image_uploaded
-    image = Image.open(image_uploaded)
-else:
+#If no image is uploaded set default image as amber
+if image_uploaded is None:
     input_ = input_image
     image = Image.open(input_image)
+else:
+    input_ = image_uploaded
+    image = Image.open(image_uploaded)
+    img = str(image_uploaded)
 
-st.write("### 🖼Source Image: ")
-st.image(image, use_column_width='always')
+#Output images path
+output_image = "images/output-images/" + style_name + "-" + img + ".jpg"
 
-clicked = st.button("Stylize✅")
+st.write("## 👨‍💻 Let's deep stylize \
+        \n In this segment left side we have uploaded image which is our content image\
+        and right side we have output image. To save output image, just right click and choose 'Save Image as' option.")
+
+#Columns for input and output images
+col1, col2 = st.beta_columns(2)
+with col1:
+    st.write("### 🖼Source Image: ")
+    st.image(image, use_column_width='always')
+
+#Stylize the input image
+st.sidebar.write("😎 **Run styling** ",)
+clicked = st.sidebar.button("Stylize")
 if clicked:
     model = style.load_model(model)
     style.stylize(model, input_, output_image)
+    with col2:
+        st.write("### 🎉Output Image")
+        image = Image.open(output_image)
+        st.image(image, use_column_width='always')
 
-    st.write("### 🎉Output Image")
-    image = Image.open(output_image)
-    st.image(image, use_column_width='always')
 
-st.write("What a style! Follow me, [here](pr2tik1.github.io)")
+st.write("Follow [here](https://github.com/pr2tik1/deep-stylize-image) for code and to understand how app works. To know more about me, connect with me [here](pr2tik1.github.io).")
 
-st.write("### **DANGER ZONE** Delete Everything!⚠️")
-st.write('To delete all the output images and uploaded images press this button below.')
-cleared = st.button("Delete 🚫")
+#Delete option
+st.sidebar.write("🥵 **Delete everything**")
+cleared = st.sidebar.button("Delete 🚫")
 mydir = 'images/output-images/'
 if cleared:
     for file in os.listdir(mydir):
         if file.endswith('.jpg'):
             os.remove(os.path.join(mydir,file))
-
-
-
