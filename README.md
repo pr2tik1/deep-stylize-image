@@ -14,7 +14,7 @@ https://download.pytorch.org/whl/cpu/torch-1.6.0%2Bcpu-cp36-cp36m-linux_x86_64.w
 
 ## Run
 
-1. Local Hosting
+1. Local Hosting: 
 
 Run following python script in terminal,
 
@@ -24,7 +24,8 @@ streamlit run app.py
 If the app does not pop up to your default browser, then to view the app follow the localhost link shown in terminal. The link is displayed until you stop by pressing: Ctrl+Z or kill the terminal.
 
 
-2. Heroku
+2. Heroku:
+
 The app is deployed(as of 11.03.2021) with Heroku, please follow the link :   https://deep-style-images.herokuapp.com 
 
 ## Usage
