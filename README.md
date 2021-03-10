@@ -23,7 +23,7 @@ Select styles and default images from the sidebar. Then if the user wants to upl
 
 ## Glimpse of app
 
-![](https://github.com/pr2tik1/deep-stylize-image/glimpse.gif)
+![](https://github.com/pr2tik1/deep-stylize-image/blob/main/glimpse.gif)
 
 ## Author
 [Pratik Kumar](https://pr2tik1.github.io)
