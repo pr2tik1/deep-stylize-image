@@ -31,6 +31,8 @@ The app is deployed(as of 11.03.2021) with Heroku, please follow the link :   ht
 ## Usage
 Select styles and default images from the sidebar. Then if the user wants to upload his/her own image, select he upload option. Next click on stylize and the output image is shown. To save the image, simply right click -> 'Save Image as'.
 
+## Glimpse
+![](https://github.com/pr2tik1/deep-style-images/blob/main/glimpse.gif)
 
 ## Author
 [Pratik Kumar](https://pr2tik1.github.io)
