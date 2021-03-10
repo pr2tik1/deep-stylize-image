@@ -2,7 +2,6 @@ import os
 import streamlit as st 
 from PIL import Image 
 import style 
-import random 
 
 #Main Title
 im = Image.open('banner.jpg')

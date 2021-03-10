@@ -1,0 +1,1 @@
+web: sh setup.sh && stream run app.py
