@@ -1,2 +1,2 @@
 streamlit
-Pillow==2.2.2
+Pillow
