@@ -28,9 +28,6 @@ If the app does not pop up to your default browser, then to view the app follow 
 ## Usage
 Select styles and default images from the sidebar. Then if the user wants to upload his/her own image, select he upload option. Next click on stylize and the output image is shown. To save the image, simply right click -> 'Save Image as'.
 
-## Glimpse of app
-
-![](https://github.com/pr2tik1/deep-stylize-image/blob/main/glimpse.gif)
 
 ## Author
 [Pratik Kumar](https://pr2tik1.github.io)
