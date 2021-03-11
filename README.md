@@ -26,7 +26,7 @@ If the app does not pop up to your default browser, then to view the app follow 
 
 2. Heroku:
 
-The app is deployed(as of 11.03.2021) with Heroku, please follow the link :   https://deep-style-images.herokuapp.com 
+The app is deployed(as of 11.03.2021) with Heroku, please follow the link :   https://deep-style-images.herokuapp.com The app might function slow or may crash due to memory restrictions and limitations on Heroku. Please run locally for smooth functionality.
 
 ## Usage
 Select styles and default images from the sidebar. Then if the user wants to upload his/her own image, select he upload option. Next click on stylize and the output image is shown. To save the image, simply right click -> 'Save Image as'.
