@@ -12,7 +12,7 @@ import streamlit as st
 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
-@st.cache
+@st.cache(ttl=60*5,max_entries=20)
 def load_model(model_path):
     with torch.no_grad():
         style_model = TransformerNet()
@@ -26,7 +26,7 @@ def load_model(model_path):
         style_model.eval()
         return style_model
 
-@st.cache
+@st.cache(ttl=60*5,max_entries=20)
 def stylize(style_model, content_image, output_image):
 
     content_image = utils.load_image(content_image)
