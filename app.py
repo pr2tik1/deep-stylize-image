@@ -84,7 +84,7 @@ if clicked:
         st.image(image, use_column_width='always')
 
 
-st.write("Follow [here](https://github.com/pr2tik1/deep-stylize-image) for code and to understand how app works. To know more about me, connect with me [here](pr2tik1.github.io).")
+st.write("Follow [here](https://github.com/pr2tik1/deep-stylize-image) for code and to understand how app works. To know more about me, connect with me [here](https://pr2tik1.github.io.")
 
 #Delete option
 st.sidebar.write("🥵 **Delete everything**")
