@@ -43,7 +43,7 @@ style_name = st.sidebar.selectbox(
     ('candy','mosaic','udnie','rain_princess')
 )
 #Default value and Uploading images
-img = "amber" #default
+img = "cat" #default
 image_uploaded = st.file_uploader("(Image below 1MB)", type="jpg")
 
 #Loading model
