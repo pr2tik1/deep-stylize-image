@@ -21,12 +21,13 @@ Run following python script in terminal,
 ```python
 streamlit run app.py
 ```
-If the app does not pop up to your default browser, then to view the app follow the localhost link shown in terminal. The link is displayed until you stop by pressing: Ctrl+Z or kill the terminal.
+If the app does not pop up to your default browser, then to view the app follow the localhost link shown in terminal. The link is displayed until you stop by pressing: Ctrl+C or Ctrl+Z in the terminal.
 
 
 2. Heroku:
 
-The app is deployed(as of 11.03.2021) with Heroku, please follow the link :   https://deep-style-images.herokuapp.com The app might function slow or may crash due to memory restrictions and limitations on Heroku. Please run locally for smooth functionality.
+The app is deployed(as of 11.03.2021) with Heroku, please follow the link :   https://deep-style-images.herokuapp.com 
+(The app might function slow or may crash due to memory restrictions and RAM limitations on Heroku. Please run locally for smooth functionality.)
 
 ## Usage
 Select styles and default images from the sidebar. Then if the user wants to upload his/her own image, select he upload option. Next click on stylize and the output image is shown. To save the image, simply right click -> 'Save Image as'.
