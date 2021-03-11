@@ -50,14 +50,17 @@ image_uploaded = st.file_uploader("(Image below 1MB)", type="jpg")
 model = "saved_models/" + style_name + ".pth"
 input_image = "images/content-images/" + img  + ".jpg"
 
+
 #If no image is uploaded set default image as amber
 if image_uploaded is None:
     input_ = input_image
     image = Image.open(input_image)
 else:
-    input_ = image_uploaded
     image = Image.open(image_uploaded)
     img = str(image_uploaded)
+    image.save("images/compressed-images/compressed_"+ img +".jpg", optimize = True, quality=30)#Change quality
+    compressed_image  ="images/compressed-images/compressed_"+ img +".jpg"
+    input_ = compressed_image
 
 #Output images path
 output_image = "images/output-images/" + style_name + "-" + img + ".jpg"
@@ -70,7 +73,10 @@ st.write("## 👨‍💻 Let's deep stylize \
 col1, col2 = st.beta_columns(2)
 with col1:
     st.write("### 🖼Source Image: ")
-    st.image(image, use_column_width='always')
+    if image_uploaded is None:
+        st.image(image, use_column_width='always')
+    else:
+        st.image(compressed_image, use_column_width='always')
 
 #Stylize the input image
 st.sidebar.write("😎 **Run styling** ",)
