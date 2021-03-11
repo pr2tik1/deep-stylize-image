@@ -58,7 +58,7 @@ if image_uploaded is None:
 else:
     image = Image.open(image_uploaded)
     img = str(image_uploaded)
-    image.save("images/compressed-images/compressed_"+ img +".jpg", optimize = True, quality=15)#Change quality
+    image.save("images/compressed-images/compressed_"+ img +".jpg", optimize = True, quality=30)#Change quality
     compressed_image  ="images/compressed-images/compressed_"+ img +".jpg"
     input_ = compressed_image
 
