@@ -100,4 +100,4 @@ st.sidebar.write('**Note:** Please use small size images(<200kB). \
     \n**Why?** \
     \nBecause there are [limitations](https://stackoverflow.com/a/66586602/15377016) to something free.')
 st.sidebar.write("*Made by Pratik Kumar*")
-st.write('To know more about the application development and code follow the [here](https://github.com/pr2tik1/deep-stylize-image)')
+st.write('To know more about the application development and code follow [here](https://github.com/pr2tik1/deep-stylize-image).')
