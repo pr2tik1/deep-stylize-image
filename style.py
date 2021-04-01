@@ -26,10 +26,9 @@ def load_model(model_path):
         style_model.eval()
         return style_model
 
-@st.cache(ttl=60*5,max_entries=20, suppress_st_warning=True)
+@st.cache(ttl=60*5,max_entries=20)
 def stylize(style_model, content_image, output_image):
-    progress_bar = st.progress(0)
-
+    
     content_image = utils.load_image(content_image)
     content_transform = transforms.Compose([
         transforms.ToTensor(),
@@ -42,5 +41,4 @@ def stylize(style_model, content_image, output_image):
         output = style_model(content_image).cpu()
     utils.save_image(output_image, output[0])
 
-    progress_bar.progress(100)
     
