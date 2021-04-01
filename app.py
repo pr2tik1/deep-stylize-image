@@ -2,6 +2,7 @@ import os
 import streamlit as st 
 from PIL import Image 
 import style 
+import time 
 
 #Main Title
 im = Image.open('banner.jpg')
@@ -44,7 +45,7 @@ style_name = st.sidebar.selectbox(
 )
 #Default value and Uploading images
 img = "cat" #default
-image_uploaded = st.file_uploader("(Image below 1MB)", type="jpg")
+image_uploaded = st.file_uploader("(Image size must below 200kB so that you don't kill the app!)", type="jpg")
 
 #Loading model
 model = "saved_models/" + style_name + ".pth"
@@ -82,12 +83,21 @@ with col1:
 st.sidebar.write("😎 **Run styling** ",)
 clicked = st.sidebar.button("Stylize")
 if clicked:
+    
     model = style.load_model(model)
     style.stylize(model, input_, output_image)
+    
+    
     with col2:
         st.write("### 🎉Output Image")
         image = Image.open(output_image)
         st.image(image, use_column_width='always')
 
+    st.success('Done! 🚀')
+    st.balloons()
 
-st.sidebar.write("*Follow [this](https://github.com/pr2tik1/deep-stylize-image) repository for code. Made by Pratik Kumar*")
+st.sidebar.write('**Note:** Please use small size images(<200kB). \
+    \n**Why?** \
+    \nBecause there are [limitations](https://stackoverflow.com/a/66586602/15377016) to something free.')
+st.sidebar.write("*Made by Pratik Kumar*")
+st.write('To know more about the application development and code follow the [here](https://github.com/pr2tik1/deep-stylize-image)')
