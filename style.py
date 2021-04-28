@@ -12,12 +12,11 @@ import streamlit as st
 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
-@st.cache(ttl=60*5,max_entries=20)
+@st.cache()
 def load_model(model_path):
     with torch.no_grad():
         style_model = TransformerNet()
         state_dict = torch.load(model_path)
-        # remove saved deprecated running_* keys in InstanceNorm from the checkpoint
         for k in list(state_dict.keys()):
             if re.search(r'in\d+\.running_(mean|var)$', k):
                 del state_dict[k]
@@ -26,7 +25,7 @@ def load_model(model_path):
         style_model.eval()
         return style_model
 
-@st.cache(ttl=60*5,max_entries=20)
+@st.cache()
 def stylize(style_model, content_image, output_image):
     
     content_image = utils.load_image(content_image)
@@ -40,5 +39,3 @@ def stylize(style_model, content_image, output_image):
     with torch.no_grad():
         output = style_model(content_image).cpu()
     utils.save_image(output_image, output[0])
-
-    
