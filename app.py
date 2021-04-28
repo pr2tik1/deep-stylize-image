@@ -43,8 +43,12 @@ style_name = st.sidebar.selectbox(
     "Style Options",
     ('candy','mosaic','udnie','rain_princess')
 )
+
 #Default value and Uploading images
-img = "cat" #default
+img = st.sidebar.selectbox(
+    'Select Image',('cat', 'catface', 'sunset', 'banana'), 
+)
+
 image_uploaded = st.file_uploader("(Image size must below 200kB so that you don't kill the app!)", type="jpg")
 
 #Loading model
@@ -59,7 +63,7 @@ if image_uploaded is None:
 else:
     image = Image.open(image_uploaded)
     img = str(image_uploaded)
-    image.save("images/compressed-images/compressed_"+ img +".jpg", optimize = True, quality=30)#Change quality
+    image.save("images/compressed-images/compressed_"+ img +".jpg", optimize = True, quality=30)#Change quality using 
     compressed_image  ="images/compressed-images/compressed_"+ img +".jpg"
     input_ = compressed_image
 
