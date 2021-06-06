@@ -78,10 +78,10 @@ st.write("## 👨‍💻 Let's deep stylize \
 col1, col2 = st.beta_columns(2)
 with col1:
     st.write("### 🖼Source Image: ")
-    if image_uploaded is None:
-        st.image(image, use_column_width='always')
-    else:
-        st.image(compressed_image, use_column_width='always')
+    # if image_uploaded is None:
+    #     st.image(image, use_column_width='always')
+    # else:
+    st.image(compressed_image, use_column_width='always')
 
 #Stylize the input image
 st.sidebar.write("😎 **Run styling** ",)
