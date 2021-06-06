@@ -54,20 +54,7 @@ img = st.sidebar.selectbox(
 #Loading model
 model = "saved_models/" + style_name + ".pth"
 input_image = "images/content-images/" + img  + ".jpg"
-
-
-#If no image is uploaded set default image as amber
-# if image_uploaded is None:
-input_ = input_image
 image = Image.open(input_image)
-# else:
-#     image = Image.open(image_uploaded)
-#     img = str(image_uploaded)
-#     image.save("images/compressed-images/compressed_"+ img +".jpg", optimize = True, quality=30)#Change quality using 
-#     compressed_image  ="images/compressed-images/compressed_"+ img +".jpg"
-#     input_ = compressed_image
-
-#Output images path
 output_image = "images/output-images/" + style_name + "-" + img + ".jpg"
 
 st.write("## 👨‍💻 Let's deep stylize \
@@ -78,30 +65,20 @@ st.write("## 👨‍💻 Let's deep stylize \
 col1, col2 = st.beta_columns(2)
 with col1:
     st.write("### 🖼Source Image: ")
-    # if image_uploaded is None:
-    #     st.image(image, use_column_width='always')
-    # else:
-    st.image(compressed_image, use_column_width='always')
+    st.image(input_image, use_column_width='always')
 
 #Stylize the input image
 st.sidebar.write("😎 **Run styling** ",)
 clicked = st.sidebar.button("Stylize")
 if clicked:
-    
     model = style.load_model(model)
-    style.stylize(model, input_, output_image)
-    
-    
+    style.stylize(model, input_image, output_image)
     with col2:
         st.write("### 🎉Output Image")
         image = Image.open(output_image)
         st.image(image, use_column_width='always')
-
     st.success('Done! 🚀')
     st.balloons()
 
-# st.sidebar.write('**Note:** Please use small size images(<200kB). \
-#     \n**Why?** \
-#     \nBecause there are [limitations](https://stackoverflow.com/a/66586602/15377016) to something free.')
 st.sidebar.write("*Made by Pratik Kumar*")
 st.write('To know more about the application development and code follow [here](https://github.com/pr2tik1/deep-stylize-image).')
