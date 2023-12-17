@@ -1,4 +1,4 @@
-# Deep Stylize Image
+# Deep Stylize Image : **OUTDATED - NOT MAINTAINED**
 
 ![](https://github.com/pr2tik1/deep-style-images/blob/main/banner.jpg)
 
@@ -26,8 +26,7 @@ If the app does not pop up to your default browser, then to view the app follow 
 
 2. Heroku:
 
-The app is deployed(as of 11.03.2021) with Heroku, please follow the link :   https://deep-style-images.herokuapp.com 
-(The app might function slow or may crash due to memory restrictions and RAM limitations on Heroku. Please run locally for smooth functionality.)
+The app is deployed(as of 11.03.2021) with Heroku, please follow the link :   ~https://deep-style-images.herokuapp.com~
 
 ## Usage
 Select styles and default images from the sidebar. Then if the user wants to upload his/her own image, select he upload option. Next click on stylize and the output image is shown. To save the image, simply right click -> 'Save Image as'.
