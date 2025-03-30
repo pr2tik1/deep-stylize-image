@@ -4,3 +4,4 @@ blinker
 torchvision==0.2.1 
 #http://download.pytorch.org/whl/cpu/torch-1.0.0-cp36-cp36m-linux_x86_64.whl
 torch
+protobuf==3.20.3
